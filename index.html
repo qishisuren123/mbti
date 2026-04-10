@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人格基因测试 | evomap</title>
+    <meta name="description" content="发现你隐藏的人格基因 — 来自 evomap 的人格基因测序计划">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- ========== Landing Screen ========== -->
+    <div id="screen-landing" class="screen active">
+        <div class="dna-bg"></div>
+        <div class="container">
+            <header class="landing-header">
+                <div class="logo-badge">evomap</div>
+                <h1 class="main-title">
+                    <span class="title-sub">发现你隐藏的</span>
+                    <span class="title-big">人格基因</span>
+                </h1>
+                <p class="tagline">每个人都携带独特的人格基因密码<br>30道灵魂拷问，解码你不为人知的内心决策</p>
+            </header>
+
+            <div class="scenario-cards">
+                <div class="scenario-card" data-scenario="academic">
+                    <div class="card-icon">🎓</div>
+                    <h2>学业场景</h2>
+                    <p>从选课博弈到论文修罗场<br>你的学术人格基因是什么？</p>
+                    <div class="card-tag">30题 · 约5分钟</div>
+                </div>
+                <div class="scenario-card" data-scenario="work">
+                    <div class="card-icon">💼</div>
+                    <h2>工作场景</h2>
+                    <p>从职场暗战到向上管理<br>你的职场人格基因是什么？</p>
+                    <div class="card-tag">30题 · 约5分钟</div>
+                </div>
+                <div class="scenario-card" data-scenario="life">
+                    <div class="card-icon">🌙</div>
+                    <h2>生活场景</h2>
+                    <p>从亲密关系到社交暗流<br>你的生活人格基因是什么？</p>
+                    <div class="card-tag">30题 · 约5分钟</div>
+                </div>
+            </div>
+
+            <footer class="landing-footer">
+                <p>人格基因测序计划 · Powered by <a href="https://evomap.ai" target="_blank">evomap</a></p>
+                <p class="disclaimer">本测试仅供娱乐，结果不构成任何心理学诊断</p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- ========== Question Screen ========== -->
+    <div id="screen-question" class="screen">
+        <div class="container question-container">
+            <div class="question-header">
+                <button class="btn-back" id="btn-back">← 返回</button>
+                <div class="progress-info">
+                    <span id="progress-text">1 / 30</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                </div>
+                <div class="scenario-badge" id="scenario-badge">学业</div>
+            </div>
+
+            <div class="question-body" id="question-body">
+                <div class="question-number" id="question-number">Q1</div>
+                <h2 class="question-text" id="question-text">题目加载中...</h2>
+                <div class="options" id="options-container">
+                    <!-- Options rendered by JS -->
+                </div>
+            </div>
+
+            <div class="question-footer">
+                <div class="gene-strand">
+                    <div class="strand-progress" id="strand-progress"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== Analyzing Screen ========== -->
+    <div id="screen-analyzing" class="screen">
+        <div class="container analyzing-container">
+            <div class="dna-helix-animation">
+                <div class="helix-strand strand-1"></div>
+                <div class="helix-strand strand-2"></div>
+            </div>
+            <h2>正在解析你的人格基因...</h2>
+            <p class="analyzing-sub" id="analyzing-text">提取决策模式中</p>
+            <div class="analyzing-bar">
+                <div class="analyzing-fill" id="analyzing-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== Result Screen ========== -->
+    <div id="screen-result" class="screen">
+        <div class="container result-container">
+            <div class="result-card" id="result-card">
+                <div class="result-badge">evomap 人格基因报告</div>
+                <div class="result-scenario" id="result-scenario">学业场景</div>
+
+                <div class="gene-display">
+                    <div class="gene-helix-icon">🧬</div>
+                    <h1 class="gene-name" id="gene-name">加载中...</h1>
+                    <p class="gene-subtitle" id="gene-subtitle"></p>
+                </div>
+
+                <p class="gene-description" id="gene-description"></p>
+
+                <div class="dimension-radar" id="dimension-radar">
+                    <canvas id="radar-canvas" width="300" height="300"></canvas>
+                </div>
+
+                <div class="dimension-bars" id="dimension-bars">
+                    <!-- Rendered by JS -->
+                </div>
+
+                <div class="gene-traits" id="gene-traits">
+                    <!-- Rendered by JS -->
+                </div>
+            </div>
+
+            <div class="prediction-section" id="prediction-section">
+                <h3>🔮 跨场景基因推测</h3>
+                <p class="prediction-note">以下为基于当前场景的推测结果，准确度约60%。想要精准结果？去做对应场景的测试吧！</p>
+                <div class="prediction-cards" id="prediction-cards">
+                    <!-- Rendered by JS -->
+                </div>
+            </div>
+
+            <div class="result-actions">
+                <button class="btn-primary" id="btn-share">📋 复制分享文案</button>
+                <button class="btn-secondary" id="btn-screenshot">📸 保存结果卡片</button>
+                <button class="btn-secondary" id="btn-retry">🔄 测试其他场景</button>
+            </div>
+
+            <div class="result-footer">
+                <p>人格基因测序计划 · <a href="https://evomap.ai" target="_blank">evomap</a></p>
+                <p class="result-disclaimer">本测试仅供娱乐参考 | 每个人都是独特的基因组合</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast notification -->
+    <div class="toast" id="toast"></div>
+
+    <script src="js/questions.js"></script>
+    <script src="js/genes.js"></script>
+    <script src="js/engine.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
