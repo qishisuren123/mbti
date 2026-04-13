@@ -135,13 +135,13 @@ const App = {
         this.showScreen('analyzing');
 
         const texts = [
-            '提取决策模式中',
-            '分析社交策略基因',
-            '计算控制欲浓度',
-            '扫描共情能力片段',
-            '检测道德边界弹性',
-            '匹配人格基因库',
-            '生成基因报告'
+            '扫描牛马特征中',
+            '分析摸鱼基因浓度',
+            '计算内卷指数',
+            '检测甩锅倾向',
+            '测量精神内耗值',
+            '匹配牛马品种库',
+            '生成牛马报告'
         ];
 
         const fill = document.getElementById('analyzing-fill');
@@ -351,7 +351,7 @@ const App = {
                 </div>
                 <div class="prediction-gene">${pred.gene.name}</div>
                 <div class="prediction-desc">${pred.gene.subtitle}</div>
-                <div class="prediction-cta">👆 点击去测试该场景获取精准结果</div>
+                <div class="prediction-cta">👆 点这里测测你在这个场景是什么牛马</div>
             `;
             card.addEventListener('click', () => {
                 this.startTest(scenario);
@@ -373,16 +373,15 @@ const App = {
         const lowest = dimEntries[dimEntries.length - 1];
 
         const text = [
-            `🧬 我的${SCENARIO_NAMES[scenario]}人格基因是【${gene.name}】`,
-            `${gene.subtitle}`,
+            `🐂 我的 NMTI 牛马测试结果：`,
+            `${SCENARIO_NAMES[scenario]}里我是【${gene.name}】`,
+            `"${gene.subtitle}"`,
             ``,
-            `最高维度：${highest.name} ${highest.value}`,
-            `最低维度：${lowest.name} ${lowest.value}`,
+            `最强属性：${highest.name} ${highest.value}`,
+            `最弱属性：${lowest.name} ${lowest.value}`,
             ``,
-            `"${gene.desc.slice(0, 50)}..."`,
-            ``,
-            `来测测你的人格基因 👉 evomap.ai`,
-            `#人格基因测试 #evomap`
+            `你是哪种牛马？👉 qishisuren123.github.io/mbti`,
+            `#NMTI牛马测试 #evomap`
         ].join('\n');
 
         if (navigator.clipboard && navigator.clipboard.writeText) {
